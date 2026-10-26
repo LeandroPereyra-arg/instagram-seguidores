@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seguidores de Instagram</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script type="module" src="dashboard.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="icons/icon128.png" alt="">
+        <div>
+          <h1>Seguidores</h1>
+          <p id="account" class="muted">Todavía no hay datos</p>
+        </div>
+      </div>
+      <button id="scanBtn" class="primary">Escanear ahora</button>
+    </header>
+
+    <section id="progress" class="progress" hidden>
+      <div class="bar"><span id="bar"></span></div>
+      <p id="status" class="muted"></p>
+      <p class="hint">Deja esta pestaña abierta mientras escanea. Las pausas entre peticiones son a propósito para que Instagram no bloquee tu cuenta.</p>
+    </section>
+
+    <div id="error" class="alert" role="alert" hidden></div>
+    <div id="notice" class="notice" hidden></div>
+
+    <section id="welcome" class="welcome">
+      <h2>¿Cómo funciona?</h2>
+      <ol>
+        <li>Inicia sesión en <strong>instagram.com</strong> en este navegador.</li>
+        <li>Pulsa <strong>Escanear ahora</strong>. Se leerán tus listas de seguidores y seguidos.</li>
+        <li>Vuelve a escanear otro día: comparando con el escaneo anterior verás quién te dejó de seguir y quién empezó a seguirte.</li>
+      </ol>
+    </section>
+
+    <main id="main" hidden>
+      <section id="summary" class="summary"></section>
+
+      <nav id="tabs" class="tabs" role="tablist">
+        <button data-view="notBack" role="tab">No te siguen de vuelta <span class="count"></span></button>
+        <button data-view="lost" role="tab">Te dejaron de seguir <span class="count"></span></button>
+        <button data-view="gained" role="tab">Nuevos seguidores <span class="count"></span></button>
+        <button data-view="fans" role="tab">Tú no los sigues <span class="count"></span></button>
+        <button data-view="history" role="tab">Historial <span class="count"></span></button>
+      </nav>
+
+      <section class="panel">
+        <div class="toolbar">
+          <p id="viewDesc" class="muted"></p>
+          <div class="actions">
+            <input id="search" type="search" placeholder="Buscar usuario…" autocomplete="off">
+            <button id="exportBtn" class="ghost">Exportar CSV</button>
+          </div>
+        </div>
+        <ul id="list" class="list"></ul>
+        <p id="empty" class="empty" hidden></p>
+      </section>
+    </main>
+
+    <footer class="muted">Tus datos se guardan solo en este navegador. Recomendado: no escanear más de una o dos veces al día.</footer>
+  </div>
+</body>
+</html>
